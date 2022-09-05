@@ -1,0 +1,22 @@
+Exploring Data Source
+- What data types are being usde
+- How often is a column null
+- How often does a column have small or large value
+
+Incremental ELT Process: many options
+- Create one Package for each data source
+	* Each package needs to handle the extract, transform and load for that data source
+	* Each data source is processed independently
+	* Great option:
+		* each data source is independent
+		* problematic or dynamic data source
+- Separate packages for each step (Extract, Transform and Load)
+	* Staging database required
+	* Great option:
+		* little time to laod
+		* different data sources requires heavy integration
+
+Extracting Modifed Data
+- Datetime column -> Track when was the last time the record was changed. Triggers or stored procedures
+- Change Data capture
+- Change tracking -> Stores the primary key of changed row. Then it goes to the table and find the row. Can be set to auto clean up
